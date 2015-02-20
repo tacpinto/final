@@ -3,6 +3,10 @@
 <p><a href= "/transactions/new" class="btn btn-primary"> New transaction </a> </p>
 
 <% @transactions.each do |transaction| %>
-	<p><a href="/transactions/<%=transaction.id%>"> <%= transaction.tax_receipt %></a></p>
+	<li>
+	<a href="/transactions/<%=transaction.id%>"> <%= transaction.tax_receipt %></a>
+	<%= link_to "edit", edit_transaction_path(transaction) %>
+    <%= link_to "delete", transaction_path(transaction), method: :delete %>
+    </li>
 
 <% end %>
